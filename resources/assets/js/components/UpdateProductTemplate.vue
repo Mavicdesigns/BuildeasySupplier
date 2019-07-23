@@ -416,6 +416,7 @@
         data() {
             return {
                 imagePagePop: false,
+                baseUrl:this.$parent.$data.baseUrl,
                 selectedImages: [],
                 allProducts:[],
                 product:{
@@ -468,7 +469,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/supplier.buildeasy/public/Products/category')
+                axios.get(this.baseUrl+ '/Products/category')
 
                         .then(function(response) {
                             self.categories = response.data.categories;
@@ -480,7 +481,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/supplier.buildeasy/public/Products/category/create/'+self.category.name).then(function(response) {
+                axios.get(this.baseUrl+ '/Products/category/create/'+self.category.name).then(function(response) {
 
                     self.reset();
                     self.success = response.data.success;
@@ -498,7 +499,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/products/'+self.product_id+'?api_key=4ntbqhy2g0mc&page=1')
+                axios.get(this.baseUrl+ '/products/'+self.product_id+'?api_key=4ntbqhy2g0mc&page=1')
 
                         .then(function(response) {
                             self.product = (response.data.current_product);
@@ -532,7 +533,7 @@
 
                 var  self =this;
                 this.success = '';
-                axios.post('http://localhost/buildeasyApi/public/products/updateProduct?api_key=4ntbqhy2g0mc',JSON.stringify(self.product))
+                axios.post(this.baseUrl+ '/products/updateProduct?api_key=4ntbqhy2g0mc',JSON.stringify(self.product))
                         .then(function(response){
 
 

@@ -160,7 +160,7 @@
 
             return {
                 switch1: true,
-
+                baseUrl:this.$parent.$data.baseUrl,
                 allProducts: [],
                 products: {
                     title: '',
@@ -221,7 +221,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/products/getSupplierProducts/' + this.supplier_id + '?api_key=4ntbqhy2g0mc&page=1&limit=20')
+                axios.get(this.baseUrl+ '/products/getSupplierProducts/' + this.supplier_id + '?api_key=4ntbqhy2g0mc&page=1&limit=20')
                         .then(function (response) {
                             self.allProducts = response.data.supplier_products.data;
                         }, function (error) {
@@ -237,7 +237,7 @@
                     text: 'Are you sure you want to delete this Product',
                     color: 'danger',
                     accept : function(){
-                        axios.get('http://localhost/buildeasyApi/public/products/deleteProduct/' + id + '?api_key=4ntbqhy2g0mc')
+                        axios.get(this.baseUrl+ '/products/deleteProduct/' + id + '?api_key=4ntbqhy2g0mc')
                                 .then(function (response) {
 
                                     self.error = response.data.error;

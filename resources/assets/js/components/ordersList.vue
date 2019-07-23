@@ -169,7 +169,7 @@
 
             return {
                 switch1: true,
-
+                baseUrl:this.$parent.$data.baseUrl,
                 allOrders: [],
                 orders: {
                      id : 2,
@@ -240,7 +240,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/allOrders?api_key=4ntbqhy2g0mc&page=1&limit=2&supplier_id='+self.supplier_id)
+                axios.get(this.baseUrl+ '/allOrders?api_key=4ntbqhy2g0mc&page=1&limit=2&supplier_id='+self.supplier_id)
                         .then(function (response) {
                             self.allOrders = response.data.supplier_orders.data;
                         }, function (error) {
@@ -256,7 +256,7 @@
                     text: 'Are you sure you want to delete this Order',
                     color: 'danger',
                     accept : function(){
-                        axios.get('http://localhost/buildeasyApi/public/orders/deleteOrder/' + id + '?api_key=4ntbqhy2g0mc')
+                        axios.get(this.baseUrl+ '/orders/deleteOrder/' + id + '?api_key=4ntbqhy2g0mc')
                                 .then(function (response) {
 
                                     self.error = response.data.error;

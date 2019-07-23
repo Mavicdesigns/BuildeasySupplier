@@ -27,7 +27,8 @@ class ProductsController extends Controller
     public function index(){
 
         return View::make('Products.create')
-            ->with('categories',category::all());
+            ->with('categories',category::all())
+            ->with('user', Auth::user());
 
     }
 

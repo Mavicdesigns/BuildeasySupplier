@@ -40,7 +40,7 @@
                 </div>
 
                 <vs-popup title="Add image From Computer"  :active.sync="uploadImagePop">
-                    <vs-upload :fileName="'image[]'" :action="'http://localhost/buildeasyApi/public/api/uploadImage?api_key=4ntbqhy2g0mc'" :data="uploadImageData" @on-success="successUpload" />
+                    <vs-upload :fileName="'image[]'" :action="baseUrl+ '/api/uploadImage?api_key=4ntbqhy2g0mc'" :data="uploadImageData" @on-success="successUpload" />
 
                 </vs-popup>
             </vs-popup>
@@ -116,6 +116,7 @@
                 },
                 imagePagePop: this.imagePageOpen,
                 uploadImagePop: false,
+                baseUrl:this.$parent.$data.baseUrl,
                 modalSidebaractive: false,
                 clientImages:[],
                 onSelectedImages:[]
@@ -202,7 +203,7 @@
                     scale: 0.6
                 });
 
-                axios.get('http://localhost/buildeasyApi/public/api/getSupplierImages?api_key=4ntbqhy2g0mc&supplier_id='+this.user_id)
+                axios.get(this.baseUrl+ '/api/getSupplierImages?api_key=4ntbqhy2g0mc&supplier_id='+this.user_id)
 
 
                         .then(function(response) {

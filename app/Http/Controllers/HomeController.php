@@ -21,21 +21,17 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-
-        $orders = Orders::where([
+        $order = Orders::where([
             ['supplier_id' ,'=',Auth::user()->user_id],
             ['status', '=', 0 ]
         ])->latest()->get();
 
+        return view('orders/orders')
+            ->with('orders',$order);
 
-
-        return view('home')
-            ->with([
-                'orders' => $orders
-            ]);
     }
 }

@@ -7,7 +7,7 @@
 @section('content')
     <div class=" body" style="padding:0;">
 
-        <categories User_id="{{\Illuminate\Support\Facades\Auth::user()->user_id}}"></categories>
+        <categories user_id="{{$user->user_id}}"></categories>
 
 
     </div>

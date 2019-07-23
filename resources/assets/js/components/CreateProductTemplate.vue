@@ -418,6 +418,7 @@
             return {
                 imagePagePop: false,
                 selectedImages:[],
+                baseUrl:this.$parent.$data.baseUrl,
                 product:{
                     supplier_id : this.user_id,
                     title:this.$parent.$data.productTitle,
@@ -473,7 +474,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/supplier.buildeasy/public/Products/category')
+                axios.get(this.baseUrl + '/Products/category')
 
                         .then(function(response) {
                             self.categories = response.data.categories;
@@ -485,7 +486,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/supplier.buildeasy/public/Products/category/create/'+self.category.name).then(function(response) {
+                axios.get(this.baseUrl+ '/Products/category/create/'+self.category.name).then(function(response) {
 
                     self.reset();
                     self.success = response.data.success;
@@ -509,7 +510,7 @@
                     type:'material'
                 });
 
-                axios.post('http://localhost/buildeasyApi/public/products/createProduct?api_key=4ntbqhy2g0mc',JSON.stringify(self.product))
+                axios.post(this.baseUrl+ '/products/createProduct?api_key=4ntbqhy2g0mc',JSON.stringify(self.product))
                         .then(function(response) {
 
                             if(response.data.error == 0){

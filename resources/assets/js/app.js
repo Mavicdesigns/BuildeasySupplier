@@ -71,6 +71,7 @@ const app = new Vue({
 
     data:{
       productTitle: 'Untitled Product',
+        baseUrl:'http://secure-forest-32865.herokuapp.com',
         product_id:''
     },
 

@@ -225,6 +225,7 @@
                     created_at : "",
                     updated_at : ""
                 },
+                baseUrl:this.$parent.$data.baseUrl,
                 product: {
                     images:[]
                 },
@@ -250,7 +251,7 @@
 
                 var self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/allOrders/'+this.order_id+'?api_key=4ntbqhy2g0mc')
+                axios.get(this.baseUrl+ '/allOrders/'+this.order_id+'?api_key=4ntbqhy2g0mc')
                         .then(function(response){
                             self.isLoading = false;
 
@@ -275,7 +276,7 @@
                 this.isLoading = true;
                 var self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/suppliers/YKgz2Y4?api_key=4ntbqhy2g0mc')
+                axios.get(this.baseUrl+ '/suppliers/YKgz2Y4?api_key=4ntbqhy2g0mc')
                         .then(function(response){
                             self.isLoading = false;
 
@@ -299,7 +300,7 @@
                 this.isLoading = true;
                 const self = this;
 
-                axios.get('http://localhost/buildeasyApi/public/allOrders/'+self.order.order_id+'/deliver?api_key=4ntbqhy2g0mc')
+                axios.get(this.baseUrl+ '/allOrders/'+self.order.order_id+'/deliver?api_key=4ntbqhy2g0mc')
                         .then(function(response){
 
                             self.isLoading = false;

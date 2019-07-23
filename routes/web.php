@@ -75,3 +75,11 @@ Route::get('/CreateSupplierform','SupplierController@CreateSupplier')->name('sup
 
 
 Route::post('Products/create/submitProducts','ProductsController@createProduct')->name('submitProduct')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
