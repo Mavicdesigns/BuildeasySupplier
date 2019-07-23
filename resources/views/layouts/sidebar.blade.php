@@ -62,7 +62,7 @@
 
                                 <i class="zmdi zmdi-notifications"></i>
                                 <div class="notifi-dropdown js-dropdown">
-                                  
+
                                     <div class="notifi__footer">
                                         <a href="#">All notifications</a>
                                     </div>
@@ -126,7 +126,7 @@
                     <div class="image img-cir img-120">
                         <img src="{{url('images/icon/avatar-big-01.jpg')}}" alt="John Doe" />
                     </div>
-                    <h5 class="name">{{ $user['supplier_id'] }} </h5>
+                    <h5 class="name">{{ Auth::user()->name }} </h5>
                     <a href="{{ route('logout') }}"  class="btn btn-danger" style="color: #fff" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Sign out</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
