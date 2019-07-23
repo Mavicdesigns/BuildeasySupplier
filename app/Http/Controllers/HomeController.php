@@ -30,7 +30,7 @@ class HomeController extends Controller
             ['status', '=', 0 ]
         ])->latest()->get();
 
-        return view('orders/orders')
+        return view('home')
             ->with('orders',$order);
 
     }
