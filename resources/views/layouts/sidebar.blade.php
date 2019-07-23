@@ -62,24 +62,7 @@
 
                                 <i class="zmdi zmdi-notifications"></i>
                                 <div class="notifi-dropdown js-dropdown">
-                                    <div class="notifi__title">
-                                    @if(count($notifications) <= 0)
-                                            <p>You have no new notifications</p>
-                                        @else
-                                            <p>you have {{count($notifications)}} new notifications</p>
-                                        @endif
-                                    </div>
-                                    @foreach($notifications as $notifications)
-                                        <div class="notifi__item" onclick="window.location.href= '{{route('clearNotificationSingle')}}?not={{$notifications['not_id']}}&target={{$notifications['target']}}'">
-                                            <div class="bg-c1 img-cir img-40">
-                                                <i class="zmdi zmdi-email-open"></i>
-                                            </div>
-                                            <div class="content">
-                                                <p>{{$notifications['content']}}</p>
-                                                <span class="date">April 12, 2018 06:50</span>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                  
                                     <div class="notifi__footer">
                                         <a href="#">All notifications</a>
                                     </div>
