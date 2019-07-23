@@ -70,7 +70,7 @@
 
             <tbody>
 
-            @foreach($orders as $orders)
+            @foreach($order as $orders)
 
                 <tr class="tr-shadow">
                     <td>
@@ -79,17 +79,17 @@
                             <span class="au-checkmark"></span>
                         </label>
                     </td>
-                    <td>{{$orders['buyer']}}</td>
+                    <td>{{$order['buyer']}}</td>
 
-                    <td class="desc">{{$orders['title']}}</td>
+                    <td class="desc">{{$order['title']}}</td>
                     <td>2018-09-27 02:12</td>
                     <td>
-                        <span class="status--process">@if($orders['status'] == 0) {{'Unverified'}} @endif</span>
+                        <span class="status--process">@if($order['status'] == 0) {{'Unverified'}} @endif</span>
                     </td>
-                    <td>{{$orders['price']}}</td>
+                    <td>{{$order['price']}}</td>
                     <td>
                         <div class="table-data-feature">
-                            <a class="item" href="{{url('MyOrders/'.$orders['order_id'])}}" data-toggle="tooltip" data-placement="top" title="Send">
+                            <a class="item" href="{{url('MyOrders/'.$order['order_id'])}}" data-toggle="tooltip" data-placement="top" title="Send">
                                 <i class="zmdi zmdi-mail-send"></i>
                             </a>
                             <a class="item" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -118,175 +118,6 @@
     @endif
 
 
-    @if(count($processedOrders) > 0)
-
-    <div style="margin: 20px 0" class="container row">
-
-    <h3>Processed Orders</h3>
-    </div>
-    <div class="table-responsive table-responsive-data2">
-        <table class="table table-data2">
-
-            <tbody>
-
-            @foreach($processedOrders as $orders)
-
-
-        <tr class="tr-shadow">
-            <td>
-                <label class="au-checkbox">
-                    <input type="checkbox">
-                    <span class="au-checkmark"></span>
-                </label>
-            </td>
-            <td>{{$orders['buyer']}}</td>
-
-            <td class="desc">{{$orders['title']}}</td>
-            <td>2018-09-27 02:12</td>
-            <td>
-                <span class="status--process">@if($orders['status'] == 1) {{'Awaiting Confirmation from User'}} @endif</span>
-            </td>
-            <td>{{$orders['price']}}</td>
-            <td>
-                <div class="table-data-feature">
-                    <a class="item" href="{{url('MyOrders/'.$orders['order_id'])}}" data-toggle="tooltip" data-placement="top" title="Send">
-                        <i class="zmdi zmdi-mail-send"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <i class="zmdi zmdi-edit"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                        <i class="zmdi zmdi-delete"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="More">
-                        <i class="zmdi zmdi-more"></i>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr class="spacer"></tr>
-        @endforeach
-            </tbody>
-        </table>
-    </div>
-
-
-    @endif
-
-
-
-
-    @if(count($acceptedOrders) > 0)
-
-    <div style="margin: 20px 0" class="container row">
-
-    <h3>Accepted Orders</h3>
-    </div>
-    <div class="table-responsive table-responsive-data2">
-        <table class="table table-data2">
-
-            <tbody>
-
-            @foreach($acceptedOrders as $orders)
-
-
-        <tr class="tr-shadow">
-            <td>
-                <label class="au-checkbox">
-                    <input type="checkbox">
-                    <span class="au-checkmark"></span>
-                </label>
-            </td>
-            <td>{{$orders['buyer']}}</td>
-
-            <td class="desc">{{$orders['title']}}</td>
-            <td>2018-09-27 02:12</td>
-            <td>
-                <span class="status--process">@if($orders['status'] == 2) {{'Awaiting Delivery Token'}} @endif</span>
-            </td>
-            <td>{{$orders['price']}}</td>
-            <td>
-                <div class="table-data-feature">
-                    <a class="item" href="{{url('MyOrders/'.$orders['order_id'])}}" data-toggle="tooltip" data-placement="top" title="Send">
-                        <i class="zmdi zmdi-mail-send"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                        <i class="zmdi zmdi-edit"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                        <i class="zmdi zmdi-delete"></i>
-                    </a>
-                    <a class="item" data-toggle="tooltip" data-placement="top" title="More">
-                        <i class="zmdi zmdi-more"></i>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr class="spacer"></tr>
-        @endforeach
-            </tbody>
-        </table>
-    </div>
-
-    @endif
-
-    @if(count($completedOrders) > 0)
-
-        <div style="margin: 20px 0" class="container row">
-
-            <h3>Completed Orders</h3>
-        </div>
-        <div class="table-responsive table-responsive-data2">
-            <table class="table table-data2">
-
-                <tbody>
-
-                @foreach($completedOrders as $orders)
-
-
-                    <tr class="tr-shadow">
-                        <td>
-                            <label class="au-checkbox">
-                                <input type="checkbox">
-                                <span class="au-checkmark"></span>
-                            </label>
-                        </td>
-                        <td>{{$orders['buyer']}}</td>
-
-                        <td class="desc">{{$orders['title']}}</td>
-                        <td>2018-09-27 02:12</td>
-                        <td>
-                            <span class="status--process">@if($orders['status'] == 3) {{'Completed'}} @endif</span>
-                        </td>
-                        <td>{{$orders['price']}}</td>
-                        <td>
-                            <div class="table-data-feature">
-                                <a class="item" href="{{url('MyOrders/'.$orders['order_id'])}}" data-toggle="tooltip" data-placement="top" title="Send">
-                                    <i class="zmdi zmdi-mail-send"></i>
-                                </a>
-                                <a class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="zmdi zmdi-edit"></i>
-                                </a>
-                                <a class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                    <i class="zmdi zmdi-delete"></i>
-                                </a>
-                                <a class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                    <i class="zmdi zmdi-more"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="spacer"></tr>
-                @endforeach
-                </tbody>
-            </table>
-        <div class="" align="right">
-        <a href="" class="btn btn-success" >View All</a>
-        </div>
-
-        </div>
-
-    @endif
 </div>
 
 @endsection

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $orders = Orders::where([
+            ['supplier_id' ,'=',Auth::user()->user_id],
+            ['status', '=', 0 ]
+        ])->latest()->get();
+
+
+
+        return view('home')
+            ->with([
+                'orders' => $orders
+            ]);
     }
 }
