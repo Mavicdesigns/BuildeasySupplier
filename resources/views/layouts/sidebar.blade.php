@@ -1,24 +1,5 @@
 
 
-
-
-@php
-
-use App\notifications;
-use App\Supplier;
-
-  $notifications = notifications::where([
-            ['user_id', '=' ,Auth::user()->user_id], ['status', '=', 'Unread']
-        ])->get();
-
- $user = Supplier::where([
-    ['supplier_id', '=' ,Auth::user()->user_id]
-
-])->first()
-
-
-@endphp
-
 <script>
 
     function loadAjax(url,page){
